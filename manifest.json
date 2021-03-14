@@ -3,9 +3,20 @@
 	"name": "RL Parser",
 	"description": "Парсит данные эмулируя действия пользователя",
 	"version": "1.0.0",
-	
+	"content_scripts": [
+		{
+		  "matches": [
+			"<all_urls>"
+		  ],
+		  "page": "popup.html",
+		  "js": ["popup.js"],
+		  "persistent": true
+		}
+	  ],
 	"browser_action": {
+		"default_icon": "images/icon_logoPortal.png",
 		"default_popup": "popup.html"
 	},
-	"permissions": ["activeTab"]
+	"permissions": ["activeTab"],
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';"
 }
